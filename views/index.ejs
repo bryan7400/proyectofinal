@@ -1,8 +1,29 @@
 <h3>Bienvenido a  <%= title %></h3>
+<body>
 <div class="datagrid"><table border="1" width="70%">
 <thead><tr>
        <th>id</th>
-       <th>Tipo Reclamo</th>
+       <th>Tipo Usuario</th>
+       <th>Observacion</th>
+       <th>Fecha</th>
+    </thead> 
+
+<% var  j;for(j=0; j< usuarios.length; j++) { %>
+<% if(j%2==0) {%>
+<tr>
+<% } else {%>
+<tr class="alt">
+<% } %>
+       <td><%= j %></td>
+       <td><%= usuarios[j].tipoUsuario %></td>
+       <td><%= usuarios[j].observacion %></td>
+       <td><%= usuarios[j].fecha %></td>
+    </tr>   
+<% } %>
+<div class="datagrid"><table border="1" width="70%">
+<thead><tr>
+       <th>id</th>
+       <th>Tipo Usuario</th>
        <th>Observacion</th>
        <th>Fecha</th>
     </thead> 
@@ -14,10 +35,11 @@
 <tr class="alt">
 <% } %>
        <td><%= i %></td>
-       <td><%= reclamos[i].tipoReclamo %></td>
+       <td><%= reclamos[i].tipoUsuario %></td>
        <td><%= reclamos[i].observacion %></td>
        <td><%= reclamos[i].fecha %></td>
     </tr>   
 <% } %>
-</tbody>
+
+</body>
 </table>

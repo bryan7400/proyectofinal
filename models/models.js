@@ -11,6 +11,11 @@ var sequelize= new Sequelize (null, null, null, {dialect:"sqlite", storage: "rec
 var reclamo =sequelize.import (path.join(__dirname,'reclamoModel'));
 exports.reclamo =reclamo; //se exporta la definicion
 
+//importamos la definicion de la tabla que se encuentra en reclamoModel.js
+var usuario =sequelize.import (path.join(__dirname,'usuarioModel'));
+exports.usuario =usuario; //se exporta la definicion
+
+
 //sequelize.sync() crea e inicializa la tabla. 
 sequelize.sync().success (function(){
 	//success ejecuta un manager una vez creada la tabla
@@ -26,4 +31,20 @@ sequelize.sync().success (function(){
    	  		})
    	  }
    })
-}) 
+})
+//sequelize.sync() crea e inicializa la tabla. 
+sequelize.sync().success (function(){
+   //success ejecuta un manager una vez creada la tabla
+   usuario.count().success(function(count){
+        //preguntamos si la tabla esta vacia
+        if(count===0){
+         usuario.create({
+            tipoUsuario: "Ejemplo Tipo Usuario",
+            observacion: "as",
+                  fecha: "asd"
+            }).success(function(){
+               console.log("Usuarios inicializado")
+            })
+        }
+   })
+})  

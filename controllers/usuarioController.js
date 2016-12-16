@@ -2,38 +2,37 @@ var models = require('../models/models.js');
 
 
 exports.principal = function(req, res, next) {
+                 models.usuario.findAll().then( function(usuarios){
+                       res.render('index',{ title:'Proyecto Final', 
+                         subtitle: 'Avances en computacion',
+                          usuarios: usuarios
+                             });
+                              });
                  models.reclamo.findAll().then( function(reclamos){
                        res.render('index',{ title:'Proyecto Final', 
                          subtitle: 'Avances en computacion',
                           reclamos: reclamos
                              });
-                              });    
-                models.usuario.findAll().then( function(usuarios){
-                       res.render('index',{ title:'Proyecto Final', 
-                         subtitle: 'Avances en computacion',
-                          usuarios: usuarios
-                             });
-                              });            
+                              });       
 					 }
-exports.registroReclamo = function(req, res) {
-  var reclamo = {tipoReclamo:'Odeco',observacion:'',fecha:''}
- 		              res.render('registroReclamo', {reclamo:reclamo});
+exports.registroUsuario = function(req, res) {
+  var usuario = {tipoUsuario:'Odeco',observacion:'',fecha:''}
+ 		              res.render('registroUsuario', {usuario:usuario});
                   
 		   };
-exports.guardarReclamo = function(req, res) {
+exports.guardarUsuario = function(req, res) {
 
 	console.log("ingresa a guardar");
-	reclamo = models.reclamo.build (req.body.reclamo);
+	usuario = models.usuario.build (req.body.usuario);
     //a continuacion guardamos los campos que recibimos del formulario
-    reclamo.save	({fields:["tipoReclamo",
+    usuario.save	({fields:["tipoUsuario",
     					      "observacion",
     					      "fecha"
     					  ]
     			 }).then(function(){
     			 	console.log("ingresa a redirect");
-    			 	res.render('respuestaReclamo', {mensaje:'Se registro el reclamo con exito'});
+    			 	res.render('respuestaUsuario', {mensaje:'Se registro el usuario con exito'});
     			 });  	
-
 console.log(usuario);
 console.log(reclamo);
                                               };

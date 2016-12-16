@@ -1,0 +1,33 @@
+<form method="post" action="guardarUsuario">
+<ul class="form-style-1">
+    		<!--label align="left" for="tipoUsuario" class="rem" style="left: 5px">Tipo de Usuario:</label>
+		    <select name="usuario[tipoUsuario]" id="tipoUsuario" value="<%= usuario.tipoUsuario %>">		    
+		    	<option>ODECO</option>
+		    	<option>PRODUCTOS</option>
+		    	<option>SERVICIOS</option>
+		    </select>
+		    </li>
+    		<label for="observacion">Observaciones:</label>
+	    	<input type="text" id="observacion" name="usuario[observacion]" value="<%= usuario.observacion %>">
+	    	<label for="fecha">Fecha:</label>
+	    <input type="text" id="fecha" name="usuario[fecha]" value="<%= usuario.fecha %>">
+    	<input type="submit" name="envio" value="Registrar Usuario"-->
+    <li><label>Tipo de Usuario <span class="required">*</span></label>
+        <select name="usuario[tipoUsuario]" id="tipoUsuario" value="<%= usuario.tipoUsuario %>" class="field-select">
+		    	<option>Administrador</option>
+		    	<option>Usuario</option>
+        </select>
+    </li>
+    <li>
+        <label for="observacion">Observaciones:<span class="required">*</span></label>
+        <input input type="text" id="observacion" name="usuario[observacion]" value="<%= usuario.observacion %>" class="field-long" />
+    </li>
+    <li>
+    	<label for="fecha">Fecha:<span class="required">*</span></label >
+    	<input type="text" id="fecha" name="usuario[fecha]" value="<%= usuario.fecha %>"/>
+    </li>
+    <li>
+            	<input type="submit" name="envio" value="Registrar Usuario"-->
+    </li>
+</ul>
+</form>
