@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var reclamo = {tipoReclamo:'Odeco',observacion:'Mal Servicio',fechaReclamo:'29/11/2016'}
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Proyecto Final', subtitle:'Avances en Computación',reclamo:reclamo });
-});
+var reclamoController = require('../controllers/reclamoController');
 
+/* GET home page. */
+router.get('/',reclamoController.principal);
+router.get('/registroReclamo',reclamoController.registroReclamo);
+router.post('/guardarReclamo', reclamoController.guardarReclamo);
 module.exports = router;

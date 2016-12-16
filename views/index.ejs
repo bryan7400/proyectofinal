@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <h2><%= subtitle %></h2>
-    <p>Bienvenido a <%= title %></p>
-    <table border="1" width="600">
-    	<tr>
-    		<th>Tipo Reclamo</th>
-    		<th>Observación</th>
-    		<th>Fecha Reclamo</th>
-    	</tr>
-    	<tr>
-    		<td><%= reclamo.tipoReclamo %></td>
-    		<td><%= reclamo.observacion %></td>
-    		<td><%= reclamo.fechaReclamo %></td>
-    	</tr>
-    </table>
-  </body>
-</html>
+<h3>Bienvenido a  <%= title %></h3>
+<div class="datagrid"><table border="1" width="70%">
+<thead><tr>
+       <th>id</th>
+       <th>Tipo Reclamo</th>
+       <th>Observacion</th>
+       <th>Fecha</th>
+    </thead> 
+
+<% var  i;for(i=0; i< reclamos.length; i++) { %>
+<% if(i%2==0) {%>
+<tr>
+<% } else {%>
+<tr class="alt">
+<% } %>
+       <td><%= i %></td>
+       <td><%= reclamos[i].tipoReclamo %></td>
+       <td><%= reclamos[i].observacion %></td>
+       <td><%= reclamos[i].fecha %></td>
+    </tr>   
+<% } %>
+</tbody>
+</table>
